@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="Hypeman Mx — Professional Club Hypeman, MC, Event Host and Entertainment Personality based in Lagos, Nigeria. Book for clubs, concerts, festivals and events.">
+<title>Hypeman Mx | The Energy Behind The Party</title>
+
+<style>
+:root {
+  --bg:#080808;
+  --panel:#151515;
+  --gold:#c9a96e;
+  --white:#f5f3ef;
+  --muted:#a7a7a7;
+}
+* {box-sizing:border-box; margin:0; padding:0;}
+html {scroll-behavior:smooth;}
+body {
+  background:var(--bg);
+  color:var(--white);
+  font-family:Arial, Helvetica, sans-serif;
+  line-height:1.6;
+}
+a {text-decoration:none;color:inherit;}
+img {max-width:100%;}
+.container {width:90%;max-width:1150px;margin:auto;}
+header {
+  position:sticky;top:0;z-index:100;
+  background:rgba(8,8,8,.94);
+  border-bottom:1px solid #222;
+  backdrop-filter:blur(10px);
+}
+.nav {
+  min-height:72px;display:flex;
+  justify-content:space-between;align-items:center;
+}
+.logo {font-size:26px;font-weight:900;letter-spacing:2px;color:var(--gold);}
+.navlinks {display:flex;gap:24px;align-items:center;}
+.navlinks a {font-size:13px;color:#ddd;}
+.navlinks a:hover {color:var(--gold);}
+.menu {display:none;background:none;border:0;color:white;font-size:28px;}
+.gold {color:var(--gold);}
+.btn {
+  display:inline-block;padding:13px 22px;
+  background:var(--gold);color:#111;font-weight:bold;
+  border-radius:3px;font-size:13px;letter-spacing:1px;
+}
+.btn:hover {opacity:.85;}
+.btn-outline {
+  border:1px solid var(--gold);color:var(--gold);
+  background:transparent;
+}
+.hero {
+  min-height:88vh;display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  background:linear-gradient(100deg,#080808 20%,#171717 100%);
+}
+.hero::after {
+  content:"MX";position:absolute;right:-30px;bottom:-100px;
+  font-size:clamp(200px,40vw,550px);font-weight:900;
+  color:rgba(201,169,110,.04);pointer-events:none;
+}
+.hero-content {position:relative;z-index:2;padding:80px 0;}
+.eyebrow {color:var(--gold);letter-spacing:4px;font-size:12px;}
+.hero h1 {
+  font-size:clamp(46px,9vw,100px);
+  line-height:.98;letter-spacing:-3px;
+  margin:20px 0;
+}
+.hero p {max-width:550px;color:#ccc;font-size:18px;margin-bottom:30px;}
+.actions {display:flex;gap:12px;flex-wrap:wrap;}
+section {padding:90px 0;}
+.section-label {color:var(--gold);font-size:12px;letter-spacing:3px;}
+.section-title {font-size:clamp(32px,5vw,55px);line-height:1.1;margin:15px 0 25px;}
+.about-grid {display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+.photo-placeholder {
+  min-height:400px;background:linear-gradient(135deg,#262626,#111);
+  border:1px solid #333;display:flex;align-items:center;
+  justify-content:center;text-align:center;padding:25px;color:#888;
+}
+.about-text p {color:#bbb;margin-bottom:18px;}
+.cards {display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.card {
+  background:var(--panel);border:1px solid #292929;
+  padding:28px;transition:.25s;
+}
+.card:hover {border-color:var(--gold);transform:translateY(-4px);}
+.card h3 {color:var(--gold);margin-bottom:12px;}
+.card p {color:#aaa;font-size:14px;}
+.dark-section {background:#111;}
+.event-box {
+  background:linear-gradient(135deg,#1d1d1d,#080808);
+  padding:40px;border:1px solid #333;
+}
+.event-box h3 {font-size:36px;margin:15px 0;}
+.event-box p {color:#bbb;max-width:600px;}
+.tour-box {
+  padding:35px;border:1px solid #333;background:#151515;
+}
+.gallery {display:grid;grid-template-columns:repeat(2,1fr);gap:15px;}
+.gallery-item {
+  min-height:220px;background:#1b1b1b;border:1px solid #333;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;color:#888;padding:20px;
+}
+.booking {background:#171717;}
+.booking-grid {display:grid;grid-template-columns:1fr 1fr;gap:35px;}
+.booking p {color:#bbb;margin-bottom:20px;}
+form {display:grid;gap:14px;}
+input,select,textarea {
+  width:100%;padding:14px;background:#080808;
+  border:1px solid #333;color:white;font:inherit;border-radius:3px;
+}
+textarea {min-height:120px;resize:vertical;}
+input:focus,select:focus,textarea:focus {outline:1px solid var(--gold);}
+footer {padding:40px 0;border-top:1px solid #222;text-align:center;}
+footer p {color:#888;font-size:13px;margin:10px 0;}
+.social {display:flex;justify-content:center;gap:20px;margin:20px 0;}
+.social a {color:var(--gold);}
+.small {font-size:12px;color:#777;}
+.reveal {animation:fade 1s ease both;}
+@keyframes fade {
+  from {opacity:0;transform:translateY(20px);}
+  to {opacity:1;transform:translateY(0);}
+}
+@media(max-width:750px) {
+  .navlinks {
+    display:none;position:absolute;top:72px;left:0;width:100%;
+    background:#101010;padding:25px;
+    flex-direction:column;align-items:flex-start;
+    border-bottom:1px solid #333;
+  }
+  .navlinks.open {display:flex;}
+  .menu {display:block;}
+  .about-grid,.booking-grid {grid-template-columns:1fr;}
+  .cards {grid-template-columns:1fr;}
+  .hero {min-height:78vh;}
+  .hero h1 {letter-spacing:-2px;}
+  section {padding:65px 0;}
+  .photo-placeholder {min-height:300px;}
+  .event-box {padding:25px;}
+  .gallery-item {min-height:160px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home">MX.</a>
+    <button class="menu" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+    <nav class="navlinks" id="navlinks">
+      <a href="#home">HOME</a>
+      <a href="#about">ABOUT</a>
+      <a href="#events">EVENTS</a>
+      <a href="#tour">TOUR</a>
+      <a href="#media">MEDIA</a>
+      <a href="#booking">BOOK MX</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container hero-content reveal">
+    <span class="eyebrow">LAGOS, NIGERIA · AVAILABLE FOR BOOKINGS</span>
+    <h1>I MOVE<br><span class="gold">THE ROOM.</span></h1>
+    <p>Hypeman. MC. Event Host. Entertainment Personality.
+    Bringing energy, presence and unforgettable experiences to every stage.</p>
+    <div class="actions">
+      <a class="btn" href="#booking">BOOK HYPEMAN MX</a>
+      <a class="btn btn-outline" href="#about">DISCOVER MX</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-grid">
+    <div class="photo-placeholder">
+      YOUR PROFESSIONAL PHOTO WILL GO HERE
+    </div>
+    <div class="about-text">
+      <span class="section-label">THE STORY</span>
+      <h2 class="section-title">MEET <span class="gold">HYPEMAN MX.</span></h2>
+      <p>Hypeman Mx is a club hypeman, MC, event host and entertainment personality focused on creating memorable experiences through music, crowd engagement and stage presence.</p>
+      <p>From building his entertainment journey in Ibadan to expanding his brand in Lagos, Mx is driven by a passion for nightlife, entertainment and connecting with audiences.</p>
+      <p>His vision is to take the Mx experience to clubs, festivals, concerts, private events and international stages.</p>
+      <a href="#booking" class="btn btn-outline">WORK WITH MX</a>
+    </div>
+  </div>
+</section>
+
+<section class="dark-section">
+  <div class="container">
+    <span class="section-label">WHAT I DO</span>
+    <h2 class="section-title">THE <span class="gold">MX EXPERIENCE.</span></h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Club Entertainment</h3>
+        <p>Creating atmosphere, engaging the crowd and bringing energy to nightlife experiences.</p>
+      </div>
+      <div class="card">
+        <h3>MC & Event Hosting</h3>
+        <p>Hosting events with personality, confidence, audience connection and entertainment.</p>
+      </div>
+      <div class="card">
+        <h3>Brand & Special Events</h3>
+        <p>Available for brand activations, celebrations, corporate events and special appearances.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="events">
+  <div class="container">
+    <span class="section-label">EVENTS & EXPERIENCES</span>
+    <h2 class="section-title">BUILT FOR <span class="gold">THE NIGHT.</span></h2>
+    <div class="event-box">
+      <span class="eyebrow">AN MX ENTERTAINMENT EXPERIENCE</span>
+      <h3>MX <span class="gold">BACKYARD PARTY</span></h3>
+      <p>A nightlife experience built around music, crowd energy, games,
+      entertainment and unforgettable moments. Event details and upcoming
+      editions will be announced here.</p>
+      <br>
+      <a href="#booking" class="btn">EVENT & PARTNERSHIP ENQUIRIES</a>
+    </div>
+  </div>
+</section>
+
+<section class="dark-section" id="tour">
+  <div class="container">
+    <span class="section-label">ON THE ROAD</span>
+    <h2 class="section-title">MX <span class="gold">TOUR.</span></h2>
+    <div class="tour-box">
+      <h3>THE MX EXPERIENCE, <span class="gold">WORLDWIDE.</span></h3>
+      <p style="color:#bbb;margin-top:15px;">Tour appearances, international bookings and upcoming destinations will be featured here as they are confirmed.</p>
+      <br>
+      <a href="#booking" class="btn btn-outline">INVITE MX TO YOUR CITY</a>
+    </div>
+  </div>
+</section>
+
+<section id="media">
+  <div class="container">
+    <span class="section-label">PHOTO & VIDEO</span>
+    <h2 class="section-title">MX <span class="gold">IN ACTION.</span></h2>
+    <div class="gallery">
+      <div class="gallery-item">PERFORMANCE PHOTO 1</div>
+      <div class="gallery-item">PERFORMANCE PHOTO 2</div>
+      <div class="gallery-item">EVENT PHOTO 3</div>
+      <div class="gallery-item">VIDEO HIGHLIGHT</div>
+    </div>
+    <p class="small" style="margin-top:20px;">Our media gallery will be updated with performances, events and behind-the-scenes moments.</p>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <div class="container booking-grid">
+    <div>
+      <span class="section-label">BOOKINGS & COLLABORATIONS</span>
+      <h2 class="section-title">LET'S MAKE<br><span class="gold">IT HAPPEN.</span></h2>
+      <p>Booking Hypeman Mx for clubs, concerts, festivals, private parties, corporate events, brand activations and international appearances.</p>
+      <p>Send an enquiry to begin the conversation.</p>
+    </div>
+    <form onsubmit="sendBooking(event)">
+      <input id="name" placeholder="Your full name" required>
+      <input id="contact" placeholder="Phone or email address" required>
+      <select id="eventtype" required>
+        <option value="">Select event type</option>
+        <option>Nightclub</option>
+        <option>Concert or Festival</option>
+        <option>Private Party</option>
+        <option>Corporate Event</option>
+        <option>Brand Activation</option>
+        <option>International Booking</option>
+        <option>Other</option>
+      </select>
+      <input id="location" placeholder="Event location">
+      <input id="date" type="date">
+      <textarea id="message" placeholder="Tell us about your event"></textarea>
+      <button class="btn" type="submit">SEND BOOKING ENQUIRY</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <a class="logo" href="#home">HYPEMAN MX.</a>
+    <p>ENERGY. PRESENCE. EXPERIENCE.</p>
+    <div class="social">
+      <a href="https://instagram.com/" target="_blank">INSTAGRAM</a>
+      <a href="https://wa.me/" target="_blank">WHATSAPP</a>
+    </div>
+    <p>© <span id="year"></span> Hypeman Mx. All rights reserved.</p>
+    <p class="small">Official entertainment & booking website.</p>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navlinks').classList.toggle('open');
+}
+document.querySelectorAll('.navlinks a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('navlinks').classList.remove('open');
+  });
+});
+document.getElementById('year').textContent = new Date().getFullYear();
+
+function sendBooking(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const contact = document.getElementById('contact').value;
+  const eventtype = document.getElementById('eventtype').value;
+  const location = document.getElementById('location').value;
+  const date = document.getElementById('date').value;
+  const message = document.getElementById('message').value;
+
+  const text = `Booking Enquiry for Hypeman Mx\nName: ${name}\nContact: ${contact}\nEvent: ${eventtype}\nLocation: ${location}\nDate: ${date}\nDetails: ${message}`;
+
+  const email = 'YOUR_EMAIL_HERE';
+  if(email === 'YOUR_EMAIL_HERE') {
+    alert('The booking form is a preview. We will connect your email or WhatsApp after publishing.');
+    return;
+  }
+  window.location.href = 'mailto:' + email + '?subject=' +
+    encodeURIComponent('Hypeman Mx Booking Enquiry') +
+    '&body=' + encodeURIComponent(text);
+}
+</script>
+</body>
+</html>
